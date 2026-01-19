@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -366,37 +365,33 @@
         .hero-devices {
             position: relative;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 4rem auto 0;
             perspective: 1000px;
         }
 
         .device-iphone {
             width: 280px;
-            height: 580px;
-            background: linear-gradient(145deg, #1a1a2e 0%, #16162a 100%);
-            border-radius: 40px;
-            padding: 12px;
+            height: 560px;
+            background: #111;
+            border-radius: 44px;
+            padding: 10px;
             box-shadow: 
-                0 50px 100px rgba(0, 0, 0, 0.5),
-                0 0 0 1px rgba(255, 255, 255, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                0 50px 100px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
             margin: 0 auto;
+            position: relative;
             transform: rotateX(5deg) rotateY(-5deg);
             animation: deviceFloat 6s ease-in-out infinite;
-        }
-
-        @keyframes deviceFloat {
-            0%, 100% { transform: rotateX(5deg) rotateY(-5deg) translateY(0); }
-            50% { transform: rotateX(5deg) rotateY(-5deg) translateY(-15px); }
         }
 
         .device-screen {
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, #1e1e3f 0%, #0f0f1a 100%);
-            border-radius: 32px;
+            background: #050505;
+            border-radius: 36px;
             overflow: hidden;
             position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .device-notch {
@@ -404,48 +399,66 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 28px;
-            background: #000;
-            border-radius: 0 0 20px 20px;
+            width: 100px;
+            height: 24px;
+            background: #111;
+            border-radius: 0 0 16px 16px;
+            z-index: 10;
         }
 
         .device-content {
-            padding: 3rem 1.5rem 1.5rem;
+            padding: 3rem 1.25rem 1.5rem;
             height: 100%;
             display: flex;
             flex-direction: column;
+            box-sizing: border-box;
         }
 
         .device-header {
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
+            flex-shrink: 0;
         }
 
         .device-header h3 {
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
         }
 
-        .device-header p {
-            font-size: 0.75rem;
-            color: var(--text-muted);
+        .device-waveform {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            height: 24px;
+            margin-bottom: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .waveform-bar {
+            width: 3px;
+            background: #ffffff;
+            border-radius: 10px;
+            animation: waveform 1.2s ease-in-out infinite;
         }
 
         .device-cards {
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 1rem;
+            overflow-y: hidden;
         }
 
         .device-card {
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
             padding: 1rem;
             backdrop-filter: blur(10px);
+            text-align: left;
         }
 
         .device-card-header {
@@ -456,51 +469,107 @@
         }
 
         .device-card-icon {
-            width: 24px;
-            height: 24px;
+            min-width: 28px;
+            width: 28px;
+            height: 28px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.75rem;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .device-card-icon svg {
+            width: 16px !important;
+            height: 16px !important;
+            display: block;
+            color: #ffffff;
         }
 
         .device-card-title {
             font-size: 0.8rem;
             font-weight: 600;
+            color: #ffffff;
         }
 
         .device-card-text {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            line-height: 1.5;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .device-ai-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 0.6rem;
+            color: #ffffff;
+            gap: 4px;
+        }
+
+        .device-ai-tag svg {
+            width: 10px;
+            height: 10px;
         }
 
         .device-mic {
             margin-top: auto;
             display: flex;
             justify-content: center;
-            padding: 1rem;
+            padding: 1rem 0;
         }
 
         .mic-button {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: #ffffff;
             color: #000000;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
             animation: micPulse 2s ease-in-out infinite;
         }
 
-        @keyframes micPulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
-            50% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.4); }
+        .waveform-bar:nth-child(1) { height: 10px; animation-delay: 0.1s; }
+        .waveform-bar:nth-child(2) { height: 25px; animation-delay: 0.2s; }
+        .waveform-bar:nth-child(3) { height: 40px; animation-delay: 0.3s; }
+        .waveform-bar:nth-child(4) { height: 20px; animation-delay: 0.4s; }
+        .waveform-bar:nth-child(5) { height: 35px; animation-delay: 0.5s; }
+        .waveform-bar:nth-child(6) { height: 15px; animation-delay: 0.6s; }
+        .waveform-bar:nth-child(7) { height: 25px; animation-delay: 0.7s; }
+
+        @keyframes waveform {
+            0%, 100% { transform: scaleY(1); opacity: 0.5; }
+            50% { transform: scaleY(1.5); opacity: 1; }
+        }
+
+        .device-ai-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.9);
+            gap: 4px;
+        }
+
+        .device-ai-tag svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        .mic-button svg {
+            width: 22px;
+            height: 22px;
         }
 
         /* Features Section */
@@ -590,6 +659,12 @@
         .feature-icon-5 { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); }
         .feature-icon-6 { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); }
 
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            color: #ffffff;
+        }
+
         .feature-title {
             font-size: 1.25rem;
             font-weight: 600;
@@ -643,7 +718,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+        }
+
+        .platform-icon svg {
+            width: 32px;
+            height: 32px;
+            color: #ffffff;
         }
 
         .platform-name {
@@ -690,8 +770,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
             flex-shrink: 0;
+        }
+
+        .scenario-icon svg {
+            width: 20px;
+            height: 20px;
+            color: #ffffff;
         }
 
         .scenario-content h4 {
@@ -861,6 +946,11 @@
         .delay-3 { animation-delay: 0.3s; }
         .delay-4 { animation-delay: 0.4s; }
         .delay-5 { animation-delay: 0.5s; }
+
+        @keyframes deviceFloat {
+            0%, 100% { transform: rotateX(5deg) rotateY(-5deg) translateY(0); }
+            50% { transform: rotateX(5deg) rotateY(-5deg) translateY(-15px); }
+        }
     </style>
 </head>
 <body>
@@ -923,36 +1013,48 @@
                         <div class="device-notch"></div>
                         <div class="device-content">
                             <div class="device-header">
-                                <h3>闪念</h3>
-                                <p>今天有 3 条新灵感</p>
+                                <h3>正在捕获灵感...</h3>
+                                <div class="device-waveform">
+                                    <div class="waveform-bar"></div>
+                                    <div class="waveform-bar"></div>
+                                    <div class="waveform-bar"></div>
+                                    <div class="waveform-bar"></div>
+                                    <div class="waveform-bar"></div>
+                                    <div class="waveform-bar"></div>
+                                    <div class="waveform-bar"></div>
+                                </div>
                             </div>
                             <div class="device-cards">
                                 <div class="device-card">
                                     <div class="device-card-header">
-                                        <div class="device-card-icon">💡</div>
-                                        <span class="device-card-title">产品创意</span>
+                                        <div class="device-card-icon">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                        </div>
+                                        <span class="device-card-title">灵感捕获</span>
                                     </div>
-                                    <p class="device-card-text">可以做一个基于语音的...</p>
+                                    <p class="device-card-text">"我想开发一个结合 AI 语音转文字和 Notion ... "</p>
+                                    <div class="device-ai-tag">
+                                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                                        AI 自动摘要
+                                    </div>
                                 </div>
                                 <div class="device-card">
                                     <div class="device-card-header">
-                                        <div class="device-card-icon">✅</div>
+                                        <div class="device-card-icon">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-14 0v-2"></path></svg>
+                                        </div>
                                         <span class="device-card-title">待办事项</span>
                                     </div>
-                                    <p class="device-card-text">明天下午2点开会讨论...</p>
-                                </div>
-                                <div class="device-card">
-                                    <div class="device-card-header">
-                                        <div class="device-card-icon">📝</div>
-                                        <span class="device-card-title">读书笔记</span>
-                                    </div>
-                                    <p class="device-card-text">这本书的核心观点是...</p>
+                                    <p class="device-card-text">明天下午两点和设计师沟通 Logo 方案</p>
                                 </div>
                             </div>
                             <div class="device-mic">
                                 <div class="mic-button">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                                        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.91-3c-.49 0-.9.36-.98.85C16.52 14.2 14.47 16 12 16s-4.52-1.8-4.93-4.15c-.08-.49-.49-.85-.98-.85-.61 0-1.09.54-1 1.14.49 3 2.89 5.35 5.91 5.78V20c0 .55.45 1 1 1s1-.45 1-1v-2.08c3.02-.43 5.42-2.78 5.91-5.78.1-.6-.39-1.14-1-1.14z"/>
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                                        <line x1="12" y1="19" x2="12" y2="23"></line>
+                                        <line x1="8" y1="23" x2="16" y2="23"></line>
                                     </svg>
                                 </div>
                             </div>
@@ -972,32 +1074,44 @@
         </div>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon feature-icon-1">🎙️</div>
+                <div class="feature-icon feature-icon-1">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                </div>
                 <h3 class="feature-title">语音即时记录</h3>
                 <p class="feature-desc">开口说话即可生成笔记，自动转文字。无需打字，思维不中断。</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon feature-icon-2">✨</div>
+                <div class="feature-icon feature-icon-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                </div>
                 <h3 class="feature-title">智能待办中心</h3>
                 <p class="feature-desc">长按快捷输入，AI 自动判断内容类型并生成待办或笔记，支持自定义分类。</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon feature-icon-3">🏷️</div>
+                <div class="feature-icon feature-icon-3">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                </div>
                 <h3 class="feature-title">智能标签与洞察</h3>
                 <p class="feature-desc">自动生成标签，洞察你的记录习惯和灵感模式，让回顾更高效。</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon feature-icon-4">🔄</div>
+                <div class="feature-icon feature-icon-4">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                </div>
                 <h3 class="feature-title">多端同步</h3>
                 <p class="feature-desc">基于 CloudKit 自动同步，iPhone、iPad、Mac、Apple Watch 无缝切换。</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon feature-icon-5">🤖</div>
+                <div class="feature-icon feature-icon-5">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x="3" y="9" x2="21" y2="9"></line><line x="9" y="21" x2="9" y2="9"></line></svg>
+                </div>
                 <h3 class="feature-title">AI 助手</h3>
                 <p class="feature-desc">智能整理笔记，生成摘要，快速回顾。让 AI 成为你的第二大脑。</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon feature-icon-6">🔒</div>
+                <div class="feature-icon feature-icon-6">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </div>
                 <h3 class="feature-title">安全与私密</h3>
                 <p class="feature-desc">本地数据加密，CloudKit 端到端同步，你的灵感只属于你。</p>
             </div>
@@ -1014,22 +1128,30 @@
         <div class="platforms-container">
             <div class="platforms-grid">
                 <div class="platform-item">
-                    <div class="platform-icon">📱</div>
+                    <div class="platform-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                    </div>
                     <span class="platform-name">iPhone</span>
                     <span class="platform-desc">随身携带的灵感伙伴</span>
                 </div>
                 <div class="platform-item">
-                    <div class="platform-icon">⌚</div>
+                    <div class="platform-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="3"></rect><path d="M18 11v2a2 2 0 0 1-2 2h-1"></path><path d="M6 13v-2a2 2 0 0 1 2-2h1"></path></svg>
+                    </div>
                     <span class="platform-name">Apple Watch</span>
                     <span class="platform-desc">抬手即录，解放双手</span>
                 </div>
                 <div class="platform-item">
-                    <div class="platform-icon">💻</div>
+                    <div class="platform-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x="12" y="18" x2="12.01" y2="18"></line></svg>
+                    </div>
                     <span class="platform-name">iPad</span>
                     <span class="platform-desc">大屏浏览，高效整理</span>
                 </div>
                 <div class="platform-item">
-                    <div class="platform-icon">🖥️</div>
+                    <div class="platform-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="20" x2="22" y2="20"></line></svg>
+                    </div>
                     <span class="platform-name">Mac</span>
                     <span class="platform-desc">桌面工作，无缝衔接</span>
                 </div>
@@ -1046,28 +1168,36 @@
         </div>
         <div class="scenarios-grid">
             <div class="scenario-card">
-                <div class="scenario-icon">💼</div>
+                <div class="scenario-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                </div>
                 <div class="scenario-content">
                     <h4>会议灵感</h4>
                     <p>会议中突然想到新点子？立即语音记录，自动生成笔记和待办。</p>
                 </div>
             </div>
             <div class="scenario-card">
-                <div class="scenario-icon">🚶</div>
+                <div class="scenario-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 18l5-12 3 3-5 12z"></path><path d="M11 11L8 8l5-5 3 3z"></path><path d="M3 13L13 3"></path><path d="M3 13l3 3"></path><path d="M9 17l1 1"></path><path d="M13 21l1 1"></path></svg>
+                </div>
                 <div class="scenario-content">
                     <h4>出行途中</h4>
                     <p>Apple Watch 快速记录灵感，与 iPhone、iPad 自动同步。</p>
                 </div>
             </div>
             <div class="scenario-card">
-                <div class="scenario-icon">📚</div>
+                <div class="scenario-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                </div>
                 <div class="scenario-content">
                     <h4>阅读笔记</h4>
                     <p>读到精彩内容？语音记录感想，AI 自动整理成结构化笔记。</p>
                 </div>
             </div>
             <div class="scenario-card">
-                <div class="scenario-icon">🛏️</div>
+                <div class="scenario-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </div>
                 <div class="scenario-content">
                     <h4>睡前灵感</h4>
                     <p>临睡前的突发奇想，开口就能记录，不错过任何灵感瞬间。</p>
