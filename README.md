@@ -1,0 +1,2 @@
+# ideasnapnew.github.io
+newweb
